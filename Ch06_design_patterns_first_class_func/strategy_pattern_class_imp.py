@@ -3,6 +3,7 @@ This is the class implementation of the strategy design pattern
 -Context
 -Strategy (interface)
 -Concrete strategies
+
 """
 
 from abc import ABC, abstractmethod
@@ -78,7 +79,7 @@ class BulkItemPromo(Promotion):
         discount = 0
         for item in order.cart:
             if item.quantity >= 20:
-                discount += 0.10 * item.total() * 0.1
+                discount += item.total() * 0.1
         return discount
 
 
@@ -92,3 +93,8 @@ class LargeOrderPromo(Promotion):
         if len(distinct_items) >= 10:
             discount = order.total() * 0.07
         return 0
+
+
+if __name__=='__main__':
+    import doctest
+    doctest.testmod()
