@@ -42,7 +42,7 @@ class Order:
         if self.promotion is None:
             discount = 0
         else:
-            discount = self.promotion.discount(self)
+            discount = self.promotion(self)
         return self.total() - discount
 
     def __repr__(self):
@@ -52,9 +52,6 @@ class Order:
 
 def fidelity_item_promo(order):
     """
-
-    :param order:
-    :type order:
-    :return:
-    :rtype:
+    5% discount for customers with 1000 or more fidelity points
     """
+    if
