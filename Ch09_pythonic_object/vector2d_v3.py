@@ -22,12 +22,32 @@ b'd\\x00\\x00\\x00\\x00\\x00\\x00\\x08@\\x00\\x00\\x00\\x00\\x00\\x00\\x10@'
 >>> bool(v1), bool(Vector2d(0, 0))
 (True, False)
 
-Test of ``.from_bytes()`` class method:
+Tests of ``.from_bytes()`` class method:
 >>> v1_clone = Vector2d.from_bytes(bytes(v1))
 >>> v1_clone
 Vector2d(3.0, 4.0)
 >>> v1 == v1_clone
 True
+
+Test of ``format()`` with Cartesian coordinates
+>>> format(v1)
+'(3.0, 4.0)'
+>>> format(v1, '.2f')
+'(3.00, 4.00)'
+>>> format(v1, '.3e')
+'(3.000e+00, 4.000e+00)'
+
+Test of the ``angle`` method:
+>>> Vector2d(0, 0).angle()
+0.0
+>>> Vector2d(1, 0).angle()
+0.0
+>>> epsilon = 10**-8
+>>> abs(Vector2d(0, 1).angle() - math.pi/2) < epsilon
+True
+>>> abs(Vector2d(1, 1).angle() - math.pi/4) < epsilon
+True
+
 """
 from array import array
 import math
@@ -90,7 +110,7 @@ class Vector2d:
         return hash(self.x) ^ hash(self.y)
 
     def angle(self):
-        return math.atan2(self.x, self.y)
+        return math.atan2(self.y, self.x)
 
     @classmethod
     def from_bytes(cls, octets):
