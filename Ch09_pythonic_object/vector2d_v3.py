@@ -56,6 +56,15 @@ Tests of ``format`` with polar coordinates
 >>> format(Vector2d(1, 1), '0.5fp')
 '<1.41421, 0.78540>'
 
+Tests of 'x' and 'y' read-only properties
+>>> v1.x, v1.y
+(3.0, 4.0)
+>>> v1.x = 12
+Traceback (most recent call last):
+...
+AttributeError: can't set attribute
+
+
 """
 from array import array
 import math
