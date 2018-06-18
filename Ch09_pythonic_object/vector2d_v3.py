@@ -65,6 +65,13 @@ Traceback (most recent call last):
 AttributeError: can't set attribute
 
 
+Tests of hasing:
+>>> v1 = Vector2d(3, 4)
+>>> v2 = Vector2d(3.1, 4.2)
+>>> hash(v1), hash(v2)
+(7, 384307168202284039)
+>>> len(set([v1, v2]))
+2
 """
 from array import array
 import math
