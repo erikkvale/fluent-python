@@ -65,7 +65,7 @@ Traceback (most recent call last):
 AttributeError: can't set attribute
 
 
-Tests of hasing:
+Tests of hashing:
 >>> v1 = Vector2d(3, 4)
 >>> v2 = Vector2d(3.1, 4.2)
 >>> hash(v1), hash(v2)
@@ -81,16 +81,16 @@ class Vector2d:
     TYPE_CODE = 'd'
 
     def __init__(self, x, y):
-        self.__x = float(x)
-        self.__y = float(y)
+        self._x = float(x)
+        self._y = float(y)
 
     @property
     def x(self):
-        return self.__x
+        return self._x
 
     @property
     def y(self):
-        return self.__y
+        return self._y
 
     def __iter__(self):
         return (i for i in (self.x, self.y))
