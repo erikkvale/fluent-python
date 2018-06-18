@@ -74,7 +74,7 @@ class Vector2d:
         return hash(self.x) ^ hash(self.y)
 
     def angle(self):
-        return math.atan2(self.x, self.y)
+        return math.atan2(self.y, self.x)
 
     @classmethod
     def from_bytes(cls, octets):

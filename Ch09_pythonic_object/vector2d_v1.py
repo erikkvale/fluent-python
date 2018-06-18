@@ -70,4 +70,4 @@ class Vector2d:
         return outer_fmt.format(*components)
     
     def angle(self):
-        return math.atan2(self.x, self.y)
+        return math.atan2(self.y, self.x)
