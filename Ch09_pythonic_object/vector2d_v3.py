@@ -142,6 +142,7 @@ class Vector2d:
         memv = memoryview(octets[1:]).cast(type_code)
         return cls(*memv)
 
+
 if __name__=='__main__':
     import doctest
     doctest.testmod()
