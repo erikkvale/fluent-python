@@ -28,3 +28,18 @@ class Vector:
             bytes([ord(self.TYPE_CODE)]) +
             bytes(self._components)
         )
+
+    def __eq__(self, other):
+        return tuple(self) == tuple(other)
+
+    def __abs__(self):
+        return math.sqrt(sum(x * x for x in self))
+
+    def __bool__(self):
+        return bool(abs(self))
+
+    @classmethod
+    def from_bytes(cls, octets):
+        type_code = chr(octets[0])
+        memv = memoryview(octets[1:].cast(type_code))
+        return cls(memv)
